@@ -1,12 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/javascript.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aluno Online</title>
-  </head>
-  <body>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aluno Online</title>
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <aside class="sidebar">
+      <h2>🎓 Aluno Online</h2>
+      <nav>
+        <ul>
+          <li>Dashboard</li>
+          <li>Notas</li>
+          <li>Faltas</li>
+          <li>Boletos</li>
+          <li>Requerimentos</li>
+          <li>Sair</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+
+      <header class="topbar">
+        <div>
+          <h1>Olá, Aluno!</h1>
+          <p>Bem-vindo ao portal do aluno</p>
+        </div>
+        <img src="avatar.svg" alt="Avatar do usuário">
+      </header>
+
+      <section class="cards">
+
+        <article class="card">
+          <h2>Mural de Avisos</h2>
+          <p>Inscrição para o projeto de extensão</p>
+          <p>Eleição para representante de turma</p>
+        </article>
+
+        <article class="card">
+          <h2>Calendário Acadêmico</h2>
+          <p>23/02 - Início do período letivo 2026-1</p>
+          <p>25/04 - Prazo final para aplicação da P1</p>
+          <p>23/06 - Prazo final para aplicação da P2</p>
+          <p>04/07 - Fim do período letivo 2026-1</p>
+        </article>
+
+        <article class="card">
+          <h2>Minhas Disciplinas</h2>
+          <p>BI e Data Warehousing</p>
+          <p>Construção de Frontend</p>
+        </article>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
 </html>
