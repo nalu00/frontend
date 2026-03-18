@@ -87,8 +87,7 @@ body {
 }
 
 /* RESPONSIVIDADE */
-@media (min-width: 768px) {
-
+@media (width >= 768px) {
   .container {
     flex-direction: row; 
   }
