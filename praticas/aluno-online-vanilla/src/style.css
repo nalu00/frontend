@@ -18,6 +18,8 @@ body {
   color: var(--cor-texto);
 }
 
+/* ===== DASHBOARD ===== */
+
 .container {
   display: flex;
   flex-direction: column;
@@ -107,4 +109,76 @@ body {
   .cards {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* ===== LOGIN ===== */
+
+#login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#login form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.625rem;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+#login h1 {
+  text-align: center;
+}
+
+#login form p {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+#login label {
+  margin-top: 1rem;
+}
+
+#login input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border-radius: 0.4rem;
+  border: 1px solid #ccc;
+}
+
+#login button {
+  margin-top: 1.5rem;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 0.4rem;
+  background: #dcdcdc;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#login button:hover {
+  opacity: 0.8;
+}
+
+.erro {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.erro-input {
+  border: 1px solid red;
+}
+
+footer {
+  margin-top: 1rem;
+  font-size: 0.8rem;
 }
