@@ -1,0 +1,7 @@
+.header {
+  background-color: white;
+  color: var(--cor-texto);
+  padding: 15px 20px;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+}
