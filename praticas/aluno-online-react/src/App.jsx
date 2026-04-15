@@ -3,14 +3,9 @@ import Notas from './pages/Notas/Notas';
 import Faltas from './pages/Faltas/Faltas';
 import Boletos from './pages/Boletos/Boletos';
 import Requerimentos from './pages/Requerimentos/Requerimentos';
-import Dashboard from './pages/Dashboard/Dashboard';
-import Notas from './pages/Notas/Notas';
-import Faltas from './pages/Faltas/Faltas';
-import Boletos from './pages/Boletos/Boletos';
-import Requerimentos from './pages/Requerimentos/Requerimentos';
 
 function App() {
-  const pagina = 3; 
+  const pagina = 1; 
 
   return (
     <>
