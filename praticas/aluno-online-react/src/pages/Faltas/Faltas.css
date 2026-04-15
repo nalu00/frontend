@@ -1,0 +1,16 @@
+.faltas-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faltas-titulo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.faltas-card {
+  background: var(--cor-branco);
+  padding: 20px;
+  border-radius: 10px;
+}

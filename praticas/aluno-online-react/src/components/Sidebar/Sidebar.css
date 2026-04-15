@@ -1,0 +1,12 @@
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: var(--cor-primaria);
+  color: var(--cor-branco);
+  padding: 25px;
+}
+
+.sidebar-title {
+  font-size: 22px;
+  font-weight: bold;
+}
