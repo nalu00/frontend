@@ -1,35 +1,19 @@
-import Sidebar from "../../components/Sidebar/Sidebar";
-import Header from "../../components/Header/Header";
 import "./Boletos.css";
-import "../../components/Layout/Layout.css";
+import Layout from "../../components/Layout/Layout";
+import Tabela from "../../components/Tabela/Tabela";
 
 function Boletos() {
+  const colunas = ["Vencimento", "Valor"];
+
+  const dados = [
+    { vencimento: "01/04", valor: 500 },
+    { vencimento: "01/05", valor: 500 },
+  ];
+
   return (
-    <main className="layout">
-      <Sidebar />
-      <section className="main">
-        <Header />
-        <section className="content">
-          <h2>Boletos</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Vencimento</th>
-                <th>Valor</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>10/04/2026</td>
-                <td>R$ 500</td>
-                <td>Pendente</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </section>
-    </main>
+    <Layout titulo="Boletos" subtitulo="Pagamentos">
+      <Tabela titulos={colunas} dados={dados} />
+    </Layout>
   );
 }
 

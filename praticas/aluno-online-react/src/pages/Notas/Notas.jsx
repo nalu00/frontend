@@ -1,41 +1,23 @@
-import Sidebar from "../../components/Sidebar/Sidebar";
-import Header from "../../components/Header/Header";
 import "./Notas.css";
-import "../../components/Layout/Layout.css";
+import Layout from "../../components/Layout/Layout";
+import Tabela from "../../components/Tabela/Tabela";
 
 function Notas() {
+  const colunas = ["Disciplina", "Nota"];
+
+  const dados = [
+    { Disciplina: "Frontend", Nota: 8.5 },
+    { Disciplina: "DevOps", Nota: 9.0 },
+  ];
+
   return (
-    <main className="layout">
-      <Sidebar />
-      <section className="main">
-        <Header />
-        <section className="content">
-          <h2>Notas</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Disciplina</th>
-                <th>Nota</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Frontend</td>
-                <td>9.0</td>
-              </tr>
-              <tr>
-                <td>Mobile</td>
-                <td>8.0</td>
-              </tr>
-              <tr>
-                <td>Backend</td>
-                <td>6.0</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </section>
-    </main>
+    <Layout titulo="Notas" subtitulo="Histórico">
+      <div className="notas-container">
+        <div className="notas-card">
+          <Tabela titulos={colunas} dados={dados} />
+        </div>
+      </div>
+    </Layout>
   );
 }
 

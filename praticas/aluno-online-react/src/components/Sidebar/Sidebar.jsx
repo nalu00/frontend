@@ -1,16 +1,12 @@
 import "./Sidebar.css";
+import Menu from "../Menu/Menu";
 
 function Sidebar() {
   return (
     <aside className="sidebar">
-      <h2>Aluno Online</h2>
-      <ul>
-        <li>Dashboard</li>
-        <li>Faltas</li>
-        <li>Notas</li>
-        <li>Boletos</li>
-        <li>Requerimentos</li>
-      </ul>
+      <h1 className="sidebar-title">Aluno Online</h1>
+
+      <Menu /> 
     </aside>
   );
 }

@@ -1,13 +1,14 @@
 import Layout from "./Layout";
+import Tabela from "../components/Tabela";
 
 function Notas() {
-    return <>
-        <Layout>
-            <h2>Minhas Notas</h2>
-            <section>
-            </section>
-        </Layout>
-    </>
+    return (
+    <Layout titulo="Minhas Notas" subtitulo="Histórico de Notas por Semestre">
+        <Tabela />
+        <Tabela />
+        <Tabela />
+    </ Layout>
+    );
 }
 
 export default Notas;
