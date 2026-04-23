@@ -3,9 +3,10 @@ import Notas from './pages/Notas/Notas';
 import Faltas from './pages/Faltas/Faltas';
 import Boletos from './pages/Boletos/Boletos';
 import Requerimentos from './pages/Requerimentos/Requerimentos';
+import Login from './pages/Login/Login';
 
 function App() {
-  const pagina = 1; 
+  const pagina = 6; 
 
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
       {pagina === 3 && <Faltas />}
       {pagina === 4 && <Boletos />}
       {pagina === 5 && <Requerimentos />}
+      {pagina === 6 && <Login />}
     </>
   );
 }
