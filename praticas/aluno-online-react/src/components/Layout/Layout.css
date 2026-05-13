@@ -1,21 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .layout {
   display: flex;
-  height: 100vh;
-  background: var(--cor-fundo);
+  min-height: 100vh;
+  background-color: #f4f4f4;
 }
 
-.layout-main {
+.content {
   flex: 1;
   padding: 30px;
-  overflow-y: auto;
-}
-
-.layout-subtitulo {
-  margin-bottom: 20px;
-  color: #555;
-}
-
-.layout-content {
-  display: grid;
-  gap: 20px;
 }
