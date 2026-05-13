@@ -1,12 +1,17 @@
-import { useNavigate } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 function Login() {
-    const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
+
+    const handleEntrar = () => {
+      login({usuario: "a.oliveira4@iesb.edu.br", senha: "123456"});
+    }
 
   return(
     <>
-      <hi>Login</hi>
-      <button onClick={() => navigate("/")}>Entrar</button>
+      <h1>Login</h1>
+      <button onClick={handleEntrar}>Entrar</button>
     </>
   );
 }

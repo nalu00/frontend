@@ -4,7 +4,7 @@ function Perfil() {
     const { id } = useParams();
 
     
-    return <h1>Perfil do Usuário</h1>
+    return <h1>Perfil do Usuário {id}</h1>;
 }
 
 export default Perfil;
