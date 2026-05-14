@@ -1,14 +1,34 @@
-import "./Sidebar.css";
-import Menu from "../Menu/Menu";
+import { NavLink } from 'react-router-dom'
+import './Sidebar.css'
 
 function Sidebar() {
   return (
     <aside className="sidebar">
-      <h1 className="sidebar-title">Aluno Online</h1>
+      <h2>Aluno Online</h2>
 
-      <Menu /> 
+      <nav>
+        <NavLink to="/" end>
+          Dashboard
+        </NavLink>
+
+        <NavLink to="/faltas">
+          Faltas
+        </NavLink>
+
+        <NavLink to="/notas">
+          Notas
+        </NavLink>
+
+        <NavLink to="/boletos">
+          Boletos
+        </NavLink>
+
+        <NavLink to="/requerimentos">
+          Requerimentos
+        </NavLink>
+      </nav>
     </aside>
-  );
+  )
 }
 
-export default Sidebar;
+export default Sidebar
