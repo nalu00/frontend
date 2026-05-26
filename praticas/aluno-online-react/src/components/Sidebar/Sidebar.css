@@ -33,3 +33,18 @@
   background-color: #2563eb;
   color: white;
 }
+
+.logout-btn {
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ef4444;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  opacity: 0.8;
+}
