@@ -10,6 +10,7 @@ import Faltas from "./pages/Faltas/Faltas";
 import Notas from "./pages/Notas/Notas";
 import Boletos from "./pages/Boletos/Boletos";
 import Requerimentos from "./pages/Requerimentos/Requerimentos";
+import RequerimentoForm from "./forms/RequerimentoForm";
 
 function App() {
   const { autenticado } = useAuth();
@@ -31,6 +32,7 @@ function App() {
         <Route path="notas" element={<Notas />} />
         <Route path="boletos" element={<Boletos />} />
         <Route path="requerimentos" element={<Requerimentos />} />
+        <Route path="requerimentos/novo" element={<RequerimentoForm />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" />} />

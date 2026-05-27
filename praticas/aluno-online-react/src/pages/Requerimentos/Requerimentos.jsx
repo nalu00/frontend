@@ -1,8 +1,16 @@
 import "./Requerimentos.css";
 import Tabela from "../../components/Tabela/Tabela";
+import { useNavigate } from "react-router-dom";
 
 function Requerimentos() {
-  const colunas = ["Tipo", "Data", "Status"];
+
+  const navigate = useNavigate();
+
+  const colunas = [
+    "Tipo",
+    "Data",
+    "Status",
+  ];
 
   const dados = [
     {
@@ -19,9 +27,24 @@ function Requerimentos() {
 
   return (
     <div className="requerimentos-page">
+
       <div className="page-header">
         <h1>Requerimentos</h1>
-        <p>Solicitações acadêmicas</p>
+
+        <p>
+          Solicitações acadêmicas
+        </p>
+
+        <button
+          onClick={() =>
+            navigate(
+              "/requerimentos/novo"
+            )
+          }
+        >
+          ➕ Novo Requerimento
+        </button>
+
       </div>
 
       <div className="info-cards">
@@ -32,8 +55,12 @@ function Requerimentos() {
       </div>
 
       <div className="table-container">
-        <Tabela titulos={colunas} dados={dados} />
+        <Tabela
+          titulos={colunas}
+          dados={dados}
+        />
       </div>
+
     </div>
   );
 }
