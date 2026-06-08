@@ -3,6 +3,8 @@ import "./RequerimentoForm.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
+import { cadastrarRequerimento } from "../services/requerimentoService";
+
 function RequerimentoForm() {
   const navigate = useNavigate();
 
@@ -13,30 +15,33 @@ function RequerimentoForm() {
     formState: { errors },
   } = useForm();
 
-  function salvar(dados) {
-    console.log("Requerimento enviado:", {
-      ...dados,
-      data: new Date().toLocaleDateString("pt-BR"),
-    });
+  async function salvar(dados) {
+    try {
+      await cadastrarRequerimento({
+        tipo: dados.tipo,
+        descricao: dados.descricao,
+        data: new Date().toLocaleDateString("pt-BR"),
+        status: "Em análise",
+      });
 
-    reset();
+      reset();
 
-    navigate("/requerimentos");
+      navigate("/requerimentos");
+    } catch (erro) {
+      console.error(erro);
+    }
   }
 
   return (
     <div className="form-container">
-
       <h1 className="form-title">
         Novo Requerimento
       </h1>
 
       <div className="form-content">
-
         <form onSubmit={handleSubmit(salvar)}>
 
           <div className="form-group">
-
             <label>Tipo de Requerimento</label>
 
             <select
@@ -48,14 +53,13 @@ function RequerimentoForm() {
                 Selecione um tipo...
               </option>
 
-              <option value="declaracao">
+              <option value="Declaração Acadêmica">
                 Declaração Acadêmica
               </option>
 
-              <option value="historico">
+              <option value="Histórico Escolar">
                 Histórico Escolar
               </option>
-
             </select>
 
             {errors.tipo && (
@@ -63,11 +67,9 @@ function RequerimentoForm() {
                 {errors.tipo.message}
               </p>
             )}
-
           </div>
 
           <div className="form-group">
-
             <label>Descrição</label>
 
             <textarea
@@ -87,11 +89,9 @@ function RequerimentoForm() {
                 {errors.descricao.message}
               </p>
             )}
-
           </div>
 
           <div className="form-group">
-
             <label>
               Data do Requerimento
             </label>
@@ -101,7 +101,6 @@ function RequerimentoForm() {
               value={new Date().toLocaleDateString("pt-BR")}
               readOnly
             />
-
           </div>
 
           <div className="botoes">
@@ -126,9 +125,7 @@ function RequerimentoForm() {
           </div>
 
         </form>
-
       </div>
-
     </div>
   );
 }

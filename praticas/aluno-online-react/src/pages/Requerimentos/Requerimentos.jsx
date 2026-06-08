@@ -1,10 +1,22 @@
 import "./Requerimentos.css";
 import Tabela from "../../components/Tabela/Tabela";
+
+import {
+  useEffect,
+  useState,
+} from "react";
+
 import { useNavigate } from "react-router-dom";
 
-function Requerimentos() {
+import {
+  listarRequerimentos,
+} from "../../services/requerimentoService";
 
+function Requerimentos() {
   const navigate = useNavigate();
+
+  const [requerimentos, setRequerimentos] =
+    useState([]);
 
   const colunas = [
     "Tipo",
@@ -12,18 +24,29 @@ function Requerimentos() {
     "Status",
   ];
 
-  const dados = [
-    {
-      Tipo: "Declaração Acadêmica",
-      Data: "01/06/2026",
-      Status: "Em análise",
-    },
-    {
-      Tipo: "Histórico Escolar",
-      Data: "20/05/2026",
-      Status: "Concluído",
-    },
-  ];
+  useEffect(() => {
+    async function carregar() {
+      try {
+        const dados =
+          await listarRequerimentos();
+
+        const formatados =
+          dados.map((item) => ({
+            Tipo: item.tipo,
+            Data: item.data,
+            Status: item.status,
+          }));
+
+        setRequerimentos(
+          formatados
+        );
+      } catch (erro) {
+        console.error(erro);
+      }
+    }
+
+    carregar();
+  }, []);
 
   return (
     <div className="requerimentos-page">
@@ -34,8 +57,29 @@ function Requerimentos() {
         <p>
           Solicitações acadêmicas
         </p>
+      </div>
 
+      <div className="info-cards">
+        <div className="info-card">
+          <h3>Total</h3>
+
+          <span>
+            {requerimentos.length}
+          </span>
+
+        </div>
+      </div>
+
+      <div className="table-container">
+        <Tabela
+          titulos={colunas}
+          dados={requerimentos}
+        />
+      </div>
+
+      <div className="novo-requerimento-container">
         <button
+          className="novo-requerimento-btn"
           onClick={() =>
             navigate(
               "/requerimentos/novo"
@@ -44,21 +88,6 @@ function Requerimentos() {
         >
           ➕ Novo Requerimento
         </button>
-
-      </div>
-
-      <div className="info-cards">
-        <div className="info-card">
-          <h3>Total</h3>
-          <span>2</span>
-        </div>
-      </div>
-
-      <div className="table-container">
-        <Tabela
-          titulos={colunas}
-          dados={dados}
-        />
       </div>
 
     </div>
