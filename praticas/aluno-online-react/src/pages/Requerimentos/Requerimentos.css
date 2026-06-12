@@ -1,16 +1,23 @@
-table {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-  background-color: white;
+.requerimentos-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
 }
 
-th {
-  background-color: var(--cor-texto);
-  color: white;
+.page-header {
+  margin-bottom: 24px;
 }
 
-th, td {
-  border: 1px solid #ccc;
-  padding: 10px;
+.info-cards {
+  margin-bottom: 24px;
+}
+
+.table-container {
+  margin-bottom: 24px;
+}
+
+.novo-requerimento-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
 }
