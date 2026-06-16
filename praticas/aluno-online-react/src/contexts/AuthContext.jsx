@@ -1,42 +1,29 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 import { authService } from "../services/authService";
 
 const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
+function AuthProvider({ children }) {
   const [usuario, setUsuario] = useState(() => authService.getUsuario());
-  const [autenticado, setAutenticado] = useState(() => !!authService.getToken());
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const token = authService.getToken();
-    const user = authService.getUsuario();
-
-    if (!token || !user) {
-      authService.logout();
-    }
-    
-    setLoading(false);
-  }, []);
+  const [autenticado, setAutenticado] = useState(
+    () => !!authService.getToken()
+  );
 
   async function login(email, senha) {
-    const dados = await authService.login(email, senha);
-    setAutenticado(true);
-    setUsuario(dados.usuario);
+    try {
+      const dados = await authService.login(email, senha);
+
+      setAutenticado(true);
+      setUsuario(dados.usuario);
+    } catch (error) {
+      throw error;
+    }
   }
 
   function logout() {
     authService.logout();
     setAutenticado(false);
     setUsuario(null);
-  }
-
-  if (loading) {
-    return (
-      <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
-        Carregando sessão...
-      </div>
-    );
   }
 
   return (
@@ -53,6 +40,8 @@ export function AuthProvider({ children }) {
   );
 }
 
-export function useAuth() {
+function useAuth() {
   return useContext(AuthContext);
 }
+
+export { AuthProvider, useAuth };
