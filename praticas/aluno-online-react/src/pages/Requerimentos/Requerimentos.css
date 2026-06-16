@@ -1,0 +1,23 @@
+.requerimentos-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+.info-cards {
+  margin-bottom: 24px;
+}
+
+.table-container {
+  margin-bottom: 24px;
+}
+
+.novo-requerimento-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}

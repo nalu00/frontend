@@ -1,0 +1,21 @@
+.menu ul {
+  list-style: none; 
+  margin-top: 30px;
+  padding: 0;
+}
+
+.menu li {
+  padding: 12px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.menu li:hover {
+  background: var(--cor-secundaria);
+}
+
+.menu-sair {
+  margin-top: 20px;
+  color: #ff6b6b;
+}

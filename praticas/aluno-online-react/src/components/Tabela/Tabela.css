@@ -1,0 +1,19 @@
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--cor-branco);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabela th {
+  background: var(--cor-secundaria);
+  color: var(--cor-branco);
+  padding: 12px;
+  text-align: left;
+}
+
+.tabela td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}

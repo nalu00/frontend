@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Aluno Online</title>
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+
+<main id="login">
+
+  <img src="avatar.svg" alt="Logo" width="80">
+
+  <h1>Aluno Online</h1>
+
+  <form id="loginForm">
+
+    <p>Acesso</p>
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email">
+    <small id="emailError" class="erro"></small>
+
+    <label for="senha">Senha</label>
+    <input type="password" id="senha">
+    <small id="senhaError" class="erro"></small>
+
+    <button type="submit">Entrar</button>
+
+    <p id="formError" class="erro"></p>
+
+  </form>
+
+  <footer>
+    <p>© 2026. Todos os direitos reservados.</p>
+  </footer>
+
+</main>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
