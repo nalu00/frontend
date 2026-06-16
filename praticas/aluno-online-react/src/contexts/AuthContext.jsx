@@ -14,8 +14,6 @@ export function AuthProvider({ children }) {
 
     if (!token || !user) {
       authService.logout();
-      setAutenticado(false);
-      setUsuario(null);
     }
     
     setLoading(false);
