@@ -10,14 +10,10 @@ function AuthProvider({ children }) {
   );
 
   async function login(email, senha) {
-    try {
-      const dados = await authService.login(email, senha);
+    const dados = await authService.login(email, senha);
 
-      setAutenticado(true);
-      setUsuario(dados.usuario);
-    } catch (error) {
-      throw error;
-    }
+    setAutenticado(true);
+    setUsuario(dados.usuario);
   }
 
   function logout() {
