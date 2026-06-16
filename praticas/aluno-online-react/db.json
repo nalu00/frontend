@@ -27,6 +27,21 @@
       "data": "08/06/2026",
       "status": "Em análise",
       "id": "FEI_L5QPj7U"
+    },
+    {
+      "tipo": "Declaração Acadêmica",
+      "descricao": "hxswhxdashjxjhhjsxd",
+      "data": "16/06/2026",
+      "status": "Em análise",
+      "id": "tiFUlwZetb8"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Aluno Teste",
+      "email": "aluno@teste.com",
+      "senha": "123456"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

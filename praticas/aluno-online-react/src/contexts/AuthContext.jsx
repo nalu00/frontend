@@ -1,19 +1,25 @@
 /* eslint-disable react-refresh/only-export-components */
 
 import { createContext, useContext, useState } from "react";
+import { authService } from "../services/authService";
 
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
-  const [autenticado, setAutenticado] = useState(false);
-  const [usuario, setUsuario] = useState(null);
+  const [usuario, setUsuario] = useState(() => authService.getUsuario());
+  const [autenticado, setAutenticado] = useState(
+    () => !!authService.getToken()
+  );
 
-  function login(dadosUsuario) {
+  async function login(email, senha) {
+    const dados = await authService.login(email, senha);
+
     setAutenticado(true);
-    setUsuario(dadosUsuario);
+    setUsuario(dados.usuario);
   }
 
   function logout() {
+    authService.logout();
     setAutenticado(false);
     setUsuario(null);
   }

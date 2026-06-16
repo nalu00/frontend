@@ -1,28 +1,24 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { useAuth } from "../../contexts/AuthContext";
-
 import InputEmail from "../../components/Input/InputEmail";
 import InputSenha from "../../components/Input/InputSenha";
-
 import logo from "../../assets/learn.svg";
-
 import "./Login.css";
 
 function Login() {
   const navigate = useNavigate();
-
   const { login } = useAuth();
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-
   const [erroEmail, setErroEmail] = useState("");
   const [erroSenha, setErroSenha] = useState("");
+  const [erroGeral, setErroGeral] = useState(""); 
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    setErroGeral(""); 
 
     let valido = true;
 
@@ -47,12 +43,12 @@ function Login() {
     }
 
     if (valido) {
-      login({
-        nome: "Ana Luísa",
-        email,
-      });
-
-      navigate("/");
+      try {
+        await login(email, senha);
+        navigate("/");
+      } catch (error) {
+        setErroGeral(error.message);
+      }
     }
   }
 
@@ -61,28 +57,20 @@ function Login() {
       <main className="login-container">
         <form onSubmit={handleSubmit}>
           <img src={logo} alt="Logo" className="logo" />
-
           <h2>Aluno Online</h2>
 
-          <InputEmail
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            erro={erroEmail}
-          />
+          {erroGeral && (
+            <p className="erro-geral" style={{ color: "red", marginBottom: "15px", textAlign: "center" }}>
+              {erroGeral}
+            </p>
+          )}
 
-          <InputSenha
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-            erro={erroSenha}
-          />
-
+          <InputEmail value={email} onChange={(e) => setEmail(e.target.value)} erro={erroEmail} />
+          <InputSenha value={senha} onChange={(e) => setSenha(e.target.value)} erro={erroSenha} />
           <button type="submit">Entrar</button>
         </form>
       </main>
-
-      <p className="footer">
-        © 2026. Todos os direitos reservados.
-      </p>
+      <p className="footer">© 2026. Todos os direitos reservados.</p>
     </>
   );
 }
